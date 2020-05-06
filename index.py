@@ -16,6 +16,7 @@ def main():
             global count
             count = count + 1
 
+    # Determine if user wants to add a new contact
     while True:
         start = input('You currently have ' + str(count) + ' contacts. Would you like to add a new contact?: '
                                                            '(y) (n)')
@@ -29,6 +30,7 @@ def main():
 
 
 def add_contact():
+    # Gather required input. Loop back to question if user fails to input required fields.
     while True:
         first_name = input('First Name: ')
         if not first_name:
@@ -58,12 +60,14 @@ def add_contact():
 
 
 def save_contact():
+    # Add contact to file and increment counter.
     file = open('my_contacts.txt', 'a')
     file.write(contact)
     file.close()
     global count
     count = count + 1
 
+    # Display success message and determine if user would like to add another contact.
     while True:
         another = input('Your contact has been saved! You now have ' + str(count) + ' contacts. Would you '
                                                                                     'like to save another? (y) '
